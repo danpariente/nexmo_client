@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://rest.nexmo.com/tts/json
+    body:
+      encoding: UTF-8
+      string: '{"text":"Testing multiple TTS calls Service","to":"59179783638","api_key":"a12f0648","api_secret":"eac0a20e"}'
+    headers:
+      User-Agent:
+      - Nexmo Ruby Client
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html
+      Date:
+      - Wed, 10 Jun 2015 22:11:02 GMT
+      Server:
+      - nginx
+      Content-Length:
+      - '162'
+    body:
+      encoding: UTF-8
+      string: "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body bgcolor=\"white\">\r\n<center><h1>404
+        Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+    http_version: 
+  recorded_at: Wed, 10 Jun 2015 22:11:03 GMT
+- request:
+    method: post
+    uri: https://api.nexmo.com/tts/json
+    body:
+      encoding: UTF-8
+      string: '{"to":"59179783638","text":"Testing single TTS call","api_key":"a12f0648","api_secret":"eac0a20e"}'
+    headers:
+      User-Agent:
+      - Nexmo Ruby Client
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=1
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 10 Jun 2015 22:11:04 GMT
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block;
+      Content-Length:
+      - '101'
+    body:
+      encoding: UTF-8
+      string: '{"call_id":"cd5e6cdad4f68855b78d060a6b92f65c","to":"59179783638","status":"0","error_text":"Success"}'
+    http_version: 
+  recorded_at: Wed, 10 Jun 2015 22:11:04 GMT
+recorded_with: VCR 2.9.3
