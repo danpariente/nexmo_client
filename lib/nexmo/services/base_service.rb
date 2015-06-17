@@ -14,14 +14,7 @@ module Nexmo
     end
 
     def normalize_params(params)
-      params.reverse_merge!(defaults).to_json
-    end
-
-    def defaults
-      {
-        api_key: Nexmo::Client::KEY,
-        api_secret: Nexmo::Client::SECRET
-      }
+      params.reverse_merge!(Nexmo.api_defaults).to_json
     end
   end
   ServiceException = Class.new(StandardError)

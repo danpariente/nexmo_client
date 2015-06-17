@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://rest.nexmo.com/sc/us/alert/json
+    body:
+      encoding: UTF-8
+      string: '{"template":0,"status-report-req":0,"client-ref":"School Name","school_name":"School","message_body":"Testing
+        multiple Alerts Service","to":"18708074811","api_key":"key","api_secret":"secret"}'
+    headers:
+      User-Agent:
+      - Nexmo API Ruby Gem
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=1
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Jun 2015 15:30:38 GMT
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block;
+      Content-Length:
+      - '308'
+    body:
+      encoding: UTF-8
+      string: '{"message-count":"1","client-reference":"School Name","messages":[{"message-id":"030000007F146DED","to":"18708074811","remaining-balance":7.544235,"message-price":0.0048,"msisdn":"18708074811","status":"0","messageId":"030000007F146DED","remainingBalance":7.544235,"messagePrice":0.0048,"network":"310004"}]}'
+    http_version: 
+  recorded_at: Wed, 17 Jun 2015 15:30:39 GMT
+recorded_with: VCR 2.9.3

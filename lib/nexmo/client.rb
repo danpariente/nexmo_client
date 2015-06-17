@@ -3,16 +3,12 @@ require 'typhoeus/adapters/faraday'
 
 module Nexmo
   class Client
-    NEXMO_API = 'https://rest.nexmo.com'.freeze
-    KEY = ENV['NEXMO_API_KEY']
-    SECRET =  ENV['NEXMO_API_SECRET']
-
     attr_reader :connection
-    attr_reader :host
+    attr_accessor *Configuration::VALID_CONFIG_KEYS
 
-    def initialize(host = nil)
-      @host = host
-      @connection = Faraday.new(connection_options) do |builder|
+    def initialize(options = {})
+      setup_connection(options)
+      @connection = Faraday.new(options) do |builder|
         builder.adapter :typhoeus
       end
     end
@@ -20,7 +16,8 @@ module Nexmo
     def self.services
       {
         sms: SmsService,
-        tts: TextToSpeechService
+        tts: TextToSpeechService,
+        alerts: AlertsService
       }
     end
 
@@ -39,15 +36,15 @@ module Nexmo
 
     private
 
+    def setup_connection(options)
+      options.reverse_merge!(connection_options)
+      Configuration::VALID_CONFIG_KEYS.each do |key|
+        send("#{key}=", options[key])
+      end
+    end
+
     def connection_options
-      {
-        url: host || NEXMO_API,
-        parallel_manager: manager,
-        headers: {
-          user_agent: 'Nexmo Ruby Client',
-          content_type: 'application/json'
-        }
-      }
+      Nexmo.connection_options.merge(parallel_manager: manager)
     end
 
     def manager

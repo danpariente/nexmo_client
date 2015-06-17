@@ -5,10 +5,11 @@ http_interactions:
     uri: https://rest.nexmo.com/sms/json
     body:
       encoding: UTF-8
-      string: '{"from":"Nexmo Ruby Wrapper","text":"Testing multiple SMS Service","to":"59179783638","api_key":"a12f0648","api_secret":"eac0a20e"}'
+      string: '{"text":"Testing multiple SMS Service","to":"59179783638","api_key":"a12f0648","api_secret":"secret","from":"Nexmo
+        API Ruby Gem"}'
     headers:
       User-Agent:
-      - Nexmo Ruby Client
+      - Nexmo API Ruby Gem
       Content-Type:
       - application/json
   response:
@@ -21,7 +22,7 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 10 Jun 2015 22:11:01 GMT
+      - Wed, 17 Jun 2015 13:15:55 GMT
       Server:
       - nginx
       Strict-Transport-Security:
@@ -34,7 +35,7 @@ http_interactions:
       - '180'
     body:
       encoding: UTF-8
-      string: '{"message-count":"1","messages":[{"to":"59179783638","message-id":"020000006689B110","status":"0","remaining-balance":"9.75361500","message-price":"0.04500000","network":"73601"}]}'
+      string: '{"message-count":"1","messages":[{"to":"59179783638","message-id":"030000007F0D8503","status":"0","remaining-balance":"7.58263500","message-price":"0.04500000","network":"73601"}]}'
     http_version: 
-  recorded_at: Wed, 10 Jun 2015 22:11:01 GMT
+  recorded_at: Wed, 17 Jun 2015 13:15:55 GMT
 recorded_with: VCR 2.9.3
