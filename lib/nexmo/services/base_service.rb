@@ -14,7 +14,7 @@ module Nexmo
     end
 
     def normalize_params(params)
-      params.reverse_merge!(Nexmo.api_defaults).to_json
+      params.reverse_merge!(Nexmo.api_configuration).to_json
     end
   end
   ServiceException = Class.new(StandardError)

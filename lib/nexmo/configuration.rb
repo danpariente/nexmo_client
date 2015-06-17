@@ -8,8 +8,8 @@ module Nexmo
     DEFAULT_USER_AGENT    = "Nexmo API Ruby Gem".freeze
     DEFAULT_CONCURRENCY   = 100
 
-    DEFAULT_API_KEY       = nil
-    DEFAULT_API_SECRET    = nil
+    DEFAULT_API_KEY       = 'a12f0648'
+    DEFAULT_API_SECRET    = 'eac0a20e'
     DEFAULT_FORMAT        = :json
 
     attr_accessor *VALID_CONFIG_KEYS
@@ -32,7 +32,7 @@ module Nexmo
       Hash[ * VALID_CONFIG_KEYS.map { |key| [key, send(key)] }.flatten ]
     end
 
-    def connection_options
+    def connection_defaults
       {
         url: DEFAULT_ENDPOINT,
         headers: {
@@ -42,10 +42,10 @@ module Nexmo
       }
     end
 
-    def api_defaults
+    def api_configuration
       {
-        api_key: DEFAULT_API_KEY,
-        api_secret: DEFAULT_API_SECRET
+        api_key: api_key,
+        api_secret: api_secret
       }
     end
 

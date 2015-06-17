@@ -44,7 +44,7 @@ module Nexmo
     end
 
     def connection_options
-      Nexmo.connection_options.merge(parallel_manager: manager)
+      Nexmo.connection_defaults.merge(parallel_manager: manager)
     end
 
     def manager
