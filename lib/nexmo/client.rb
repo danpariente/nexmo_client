@@ -17,7 +17,8 @@ module Nexmo
       {
         sms: SmsService,
         tts: TextToSpeechService,
-        alerts: AlertsService
+        alerts: AlertsService,
+        vxml: VoiceXmlService
       }
     end
 

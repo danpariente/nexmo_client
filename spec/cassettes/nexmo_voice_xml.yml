@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://rest.nexmo.com/call/json
+    body:
+      encoding: UTF-8
+      string: '{"answer_url":"http://sms.clouvy.com/message.xml","to":"59179712345","api_key":"key","api_secret":"secret"}'
+    headers:
+      User-Agent:
+      - Nexmo API Ruby Gem
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=1
+      Content-Type:
+      - application/json;charset=ISO-8859-1
+      Date:
+      - Thu, 18 Jun 2015 21:05:52 GMT
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block;
+      Content-Length:
+      - '80'
+    body:
+      encoding: UTF-8
+      string: '{"call-id":"1d956d1c595064a2eae0eb3b8c1b0d7c-1","to":"59179712345","status":"0"}'
+    http_version: 
+  recorded_at: Thu, 18 Jun 2015 21:05:55 GMT
+recorded_with: VCR 2.9.3
